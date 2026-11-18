@@ -7,7 +7,6 @@ class Media
   Media(int years, char* name);
   virtual char* getName();
   virtual int getYear();
-  ~Media();
  protected:
   char title[16];
   int year;
