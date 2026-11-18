@@ -1,0 +1,15 @@
+#ifndef MEDIA_H
+#define MEDIA_H
+
+class Media
+{
+ public:
+  virtual char* getName();
+  virtual int getYear();
+  ~Media();
+ protected:
+  char title[16];
+  int year;
+};
+
+#endif

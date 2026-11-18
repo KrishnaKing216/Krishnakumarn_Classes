@@ -1,6 +1,8 @@
 #include "Media.h"
 #include <cstring>
 
+using namespace std;
+
 Media::Media(int years, char* name)
 {
   year = years;
