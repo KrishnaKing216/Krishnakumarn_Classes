@@ -7,10 +7,11 @@ class Music : public Media
 {
  public:
   Music(int years, char* name, char* publish, int time);
-  virtual char* getPublisher();
-  virtual int getRating();
+  char* getPublisher();
+  int getRating();
+  ~Music();
  private:
-  char artist[16];
+  char* artist;
   int duration;
 };
 

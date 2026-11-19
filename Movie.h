@@ -7,11 +7,12 @@ class Movie : public Media
 {
  public:
   Movie(int years, char* name, char* publish, int rate, int time);
-  virtual char* getDirector();
-  virtual int getDuration();
-  virtual int getRating();
+  char* getDirector();
+  int getDuration();
+  int getRating();
+  ~Movie();
  private:
-  char director[16];
+  char* director;
   int rating;
   int duration;
 };

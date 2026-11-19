@@ -5,10 +5,11 @@ class Media
 {
  public:
   Media(int years, char* name);
-  virtual char* getName();
-  virtual int getYear();
+  char* getName();
+  int getYear();
+  virtual ~Media();
  protected:
-  char title[16];
+  char* title;
   int year;
 };
 

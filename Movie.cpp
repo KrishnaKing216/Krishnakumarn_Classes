@@ -6,7 +6,8 @@ using namespace std;
 Movie::Movie(int years, char* name, char* publish, int rate, int time):Media(years, name)
 {
   duration = time;
-  strcpy(diretor, publish);
+  director = new char[strlen(publish) + 1];
+  strcpy(director, publish);
   rating = rate;
 }
 
@@ -23,4 +24,9 @@ int Movie::getDuration()
 int Movie::getRating()
 {
   return rating
+}
+
+Movie::~Movie()
+{
+  delete[] director;
 }

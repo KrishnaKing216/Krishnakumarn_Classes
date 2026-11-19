@@ -6,6 +6,7 @@ using namespace std;
 Music::Music(int years, char* name, char* publish, int time):Media(years, name)
 {
   duration = time;
+  artist = new char[strlen(publish) + 1];
   strcpy(artist, publish);
 }
 
@@ -17,4 +18,9 @@ char* Music::getArtist()
 int Music::getDuration()
 {
   return duration;
+}
+
+Music::~Music()
+{
+  delete[] artist;
 }
