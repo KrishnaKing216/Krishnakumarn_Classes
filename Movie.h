@@ -14,7 +14,7 @@ class Movie : public Media
   void printAttributes();
  private:
   char* director;
-  int rating;
+  float rating;
   int duration;
 };
 

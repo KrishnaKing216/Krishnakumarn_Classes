@@ -13,7 +13,7 @@ class videoGame : public Media
   void printAttributes();
  private:
   char* publisher;
-  int rating;
+  float rating;
 };
 
 #endif
