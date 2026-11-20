@@ -12,7 +12,7 @@ class videoGame : public Media
   ~videoGame();
  private:
   char* publisher;
-  int rating;
+  float rating;
 };
 
 #endif
