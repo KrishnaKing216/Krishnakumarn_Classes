@@ -3,7 +3,7 @@
 
 using namespace std;
 
-Video_Game::videoGame(int years, char* name, char* publish, int rate):Media(years, name)
+Video_Game::videoGame(int years, char* name, char* publish, float rate):Media(years, name)
 {
   rating = rate;
   publisher = new char[strlen(publish) + 1];
@@ -15,7 +15,7 @@ char* Video_Game::getPublisher()
   return publisher
 }
 
-int Video_Game::getRating()
+float Video_Game::getRating()
 {
   return rating;
 }
