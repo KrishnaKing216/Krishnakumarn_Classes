@@ -13,7 +13,7 @@ class Movie : public Media
   ~Movie();
  private:
   char* director;
-  int rating;
+  float rating;
   int duration;
 };
 
