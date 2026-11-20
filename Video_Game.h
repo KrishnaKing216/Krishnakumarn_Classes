@@ -10,6 +10,7 @@ class videoGame : public Media
   char* getPublisher();
   int getRating();
   ~videoGame();
+  void printAttributes();
  private:
   char* publisher;
   int rating;

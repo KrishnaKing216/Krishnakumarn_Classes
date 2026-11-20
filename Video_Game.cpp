@@ -1,3 +1,4 @@
+#include <iostream>
 #include <cstring>
 #include "Video_Game.h"
 
@@ -23,4 +24,12 @@ int Video_Game::getRating()
 Video_Game::~videoGame()
 {
   delete[] publisher;
+}
+
+void Music::printAttributes()
+{
+  cout << "Media Type: Video Game" << endl;
+  Media::printAttributes();
+  cout << "Rating (out of 10): " << rating << endl;
+  cout << "Publisher: " << publisher << endl;
 }

@@ -11,6 +11,7 @@ class Movie : public Media
   int getDuration();
   int getRating();
   ~Movie();
+  void printAttributes();
  private:
   char* director;
   int rating;

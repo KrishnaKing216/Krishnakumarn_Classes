@@ -1,4 +1,5 @@
-#include <cstring>
+#include <iostream>
+#include<cstring>
 #include "Movie.h"
 
 using namespace std;
@@ -29,4 +30,13 @@ int Movie::getRating()
 Movie::~Movie()
 {
   delete[] director;
+}
+
+void Movie::printAttributes()
+{
+  cout << "Media Type: Movie" << endl;
+  Media::printAttributes();
+  cout << "Duration: " << duration << endl;
+  cout << "Director: " << director << endl;
+  cout << "Rating (out of 10): " << rating << endl;
 }

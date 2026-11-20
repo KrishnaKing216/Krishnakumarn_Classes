@@ -1,3 +1,4 @@
+#include <iostream>
 #include <cstring>
 #include "Music.h"
 
@@ -24,3 +25,12 @@ Music::~Music()
 {
   delete[] artist;
 }
+
+void Music::printAttributes()
+{
+  cout << "Media Type: Music" << endl;
+  Super.printAttributes();
+  cout << "Duration: " << duration << endl;
+  cout << "Artist(s): " << artist << endl;
+}
+

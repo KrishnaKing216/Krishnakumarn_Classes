@@ -10,6 +10,7 @@ class Music : public Media
   char* getPublisher();
   int getRating();
   ~Music();
+  void printAttributes();
  private:
   char* artist;
   int duration;

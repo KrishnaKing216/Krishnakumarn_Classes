@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Media.h"
 #include <cstring>
 
@@ -23,4 +24,10 @@ int Media::getYear()
 Media::~Media()
 {
   delete[] title;
+}
+
+void Media::printAttributes()
+{
+  cout << "Title: " << title << endl;
+  cout << "Year Released: " << year << endl;
 }
