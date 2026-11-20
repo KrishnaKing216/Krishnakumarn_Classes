@@ -6,9 +6,9 @@
 class videoGame : public Media
 {
  public:
-  videoGame(int years, char* name, char* publish, int rating);
+  videoGame(int years, char* name, char* publish, float rating);
   char* getPublisher();
-  int getRating();
+  float getRating();
   ~videoGame();
   void printAttributes();
  private:

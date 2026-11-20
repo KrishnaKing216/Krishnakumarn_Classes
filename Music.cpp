@@ -13,7 +13,7 @@ Music::Music(int years, char* name, char* publish, int time):Media(years, name)
 
 char* Music::getArtist()
 {
-  return artist
+  return artist;
 }
 
 int Music::getDuration()
@@ -29,7 +29,7 @@ Music::~Music()
 void Music::printAttributes()
 {
   cout << "Media Type: Music" << endl;
-  Super.printAttributes();
+  Media::printAttributes();
   cout << "Duration: " << duration << endl;
   cout << "Artist(s): " << artist << endl;
 }

@@ -8,30 +8,37 @@ Citations: https://cplusplus.com/reference/cstring/, Used ClaudeAI to debug on 1
 #include <vector>
 #include <cstring>
 #include <iomanip>
+#include "Movie.h"
+#include "Video_Game.h"
+#include "Music.h"
 
 using namespace std;
 
-struct Student //Student struct with a char array for first name, last name, sutdent ID, and student GPA
-{
-  char firstName[11];
-  char lastName[21];
-  int id;
-  float GPA;
-};
-
-void addStudent(vector<Student*> &vect); //Function Prototypes
-void printStudentList(vector<Student*> &vect);
-void deleteStudent(vector<Student*> &vect);
+void addStudent(vector<Media*> &vect); //Function Prototypes
+void printStudentList(vector<Media*> &vect);
+void deleteStudent(vector<Media*> &vect);
 char* getValidName(int order);
 int getValidID();
 float getValidGPA();
 
 int main()
 {
-  vector<Student*> studentList; //initializing the vector of Student pointers
+  vector<Media*> mediaList; //initializing the vector of Media pointers
   char action[7] = "ADD"; //variable to keep track of what the user would like to do
-  cout << "Welcome to student list! Here you can keep track of all the students in your school, "
-	  "add students, delete students, and see which students are in your school. Let's add a student to get started!" << endl;
+  cout << "Welcome to media list! Here you can keep track of all desired media, "
+	  "add media, delete media, and see which media you have already recorded. Let's add a media to get started!" << endl;
+  char* name = new char[13];
+  strcpy(name, "Interstellar");
+  char* publish = new char[18];
+  strcpy(publish, "Christopher Nolan");
+  float rating = 10.0f;
+  int year = 2014;
+  int time = 169;
+  Media* m;
+  m = new Movie(year, name, publish, rating, time);
+  m->printAttributes();
+  delete m;
+  /*
   do //do...while loop to run the program. Starts with adding a student first by default.
   {
     if (strcmp(action, "ADD") == 0)
@@ -64,16 +71,17 @@ int main()
 	}
 	cin.ignore(1000, '\n');
   } while (strcmp(action, "QUIT") !=0);
-  for (vector<Student*>::iterator it = studentList.begin(); it != studentList.end(); it++) //deleting all the heap addresses at the end to clean up memory
+  for (vector<Media*>::iterator it = mediaList.begin(); it != mediaList.end(); it++) //deleting all the heap addresses at the end to clean up memory
   {
 	  delete (*it);
-  }
+	  }*/
   return 0;
 }
 
-void addStudent(vector<Student*> &vect) //takes the inputs for name (first and last), student id, and student gpa from the user, adds them to a new student created in the heap with a pointer, which is then appended to the vector. This one was tough. ClaudeAI helped me debug and figure out that strcpy can't coppy the address one pointer is pointer is pointing to into another, even if they are the same data type pointer. Sorry Mr. Galbraith, I found out the hard way :(. Looks like we were wrong about that. I should have caught it because you said it  internally dereferences.
+void addStudent(vector<Media*> &vect) //takes the inputs for name (first and last), student id, and student gpa from the user, adds them to a new student created in the heap with a pointer, which is then appended to the vector. This one was tough. ClaudeAI helped me debug and figure out that strcpy can't coppy the address one pointer is pointer is pointing to into another, even if they are the same data type pointer. Sorry Mr. Galbraith, I found out the hard way :(. Looks like we were wrong about that. I should have caught it because you said it  internally dereferences.
 {
-  Student* newStudent = new Student;
+  char* mType = getValidMedia();
+  Media* newMedia
   char* first = getValidName(1);
   char* last = getValidName(2);
   int studentID = getValidID();
@@ -90,10 +98,10 @@ void addStudent(vector<Student*> &vect) //takes the inputs for name (first and l
   delete[] last;
 }
 
-void printStudentList(vector<Student*> &vect) //goes through all the student pointers in the vector, dereferences them, and prints their attributes
+void printStudentList(vector<Media*> &vect) //goes through all the student pointers in the vector, dereferences them, and prints their attributes
 {
   int studentNum = 1;
-  for (vector<Student*>::iterator it = vect.begin(); it != vect.end(); it++)
+  for (vector<Media*>::iterator it = vect.begin(); it != vect.end(); it++)
   {
     cout << "Student " << studentNum << ":" << endl;
     cout << "First Name: " << (*it)->firstName << endl;
@@ -105,10 +113,10 @@ void printStudentList(vector<Student*> &vect) //goes through all the student poi
   }
 }
 
-void deleteStudent(vector<Student*> &vect) //Deletes the student with the given ID. Tells the user that the ID was not in the system if a student doesn't have that ID number
+void deleteStudent(vector<Media*> &vect) //Deletes the student with the given ID. Tells the user that the ID was not in the system if a student doesn't have that ID number
 {
   int deleteID = getValidID();
-  for (vector<Student*>::iterator it = vect.begin(); it != vect.end(); it++)
+  for (vector<Media*>::iterator it = vect.begin(); it != vect.end(); it++)
   {
     if ((*it)->id == deleteID)
     {
@@ -121,30 +129,20 @@ void deleteStudent(vector<Student*> &vect) //Deletes the student with the given 
   cout << "ID number not in system." << endl;
 }
 
-char* getValidName(int order) //Function to create a char array that holds either the first or last name of the student (depending on the order) and returns a pointer to the char array. Clears input stream of any extra characters for future inputs and handles all memory leaks if a failbit is triggered or the input is taken successfully
+char* ge
+tValidString() //Function to create a char array that holds either the first or last name of the student (depending on the order) and returns a pointer to the char array. Clears input stream of any extra characters for future inputs and handles all memory leaks if a failbit is triggered or the input is taken successfully
 {
   while (true)
   {
     char* name;
-    int size;
-    if (order == 1)
-    {
-      cout << "What is the student's first name?: " << endl;
-      size = 11;
-    }
-    else if (order == 2)
-    {
-      cout << "What is the student's last name?: " << endl;
-      size = 21;
-    }
-    name = new char[size];
-    cin.get(name, size);
+    name = new char[81];
+    cin.getline(name, 81);
     if (cin.fail())
     {
         cout << "Enter a valid name" << endl;
         cin.clear();
         cin.ignore(1000, '\n');
-		delete[] name; //Avoids memory leak... THANK GOD I CAUGHT THAT
+	delete[] name; //Avoids memory leak... THANK GOD I CAUGHT THAT
         continue;
     }
     cin.clear();
@@ -172,21 +170,28 @@ int getValidID() //Gets ID numbers (as ints) from the user and handles all cin f
   }
 }
 
-float getValidGPA() //Gets GPA numbers (as floats) from the user and handles all cin failbits, as well as clearing the input stream for future inputs
+float getValidRating() //Gets GPA numbers (as floats) from the user and handles all cin failbits, as well as clearing the input stream for future inputs
 {
   while (true)
   {
-    float grades;
-    cout << "What is the student's GPA?: " << endl;
-    cin >> grades;
+    float rate;
+    cout << "What is the rating?: " << endl;
+    cin >> rate;
     if (cin.fail())
     {
-	cout << "Enter a valid GPA Value" << endl;
+	cout << "Enter a valid rating" << endl;
 	cin.clear();
 	cin.ignore(1000, '\n');
 	continue;
     }
-	cin.ignore(1000,'\n');
+    else if((rate > 10.0f) || (rate < 0.0f))
+    {
+      cout << "Enter a valid rating between 1 and 10" << endl;
+      cin.clear();
+      cin.ignore(1000, '\n');
+      continue;
+    }
+    cin.ignore(1000,'\n');
     return grades;
   }      
 }

@@ -6,10 +6,10 @@
 class Movie : public Media
 {
  public:
-  Movie(int years, char* name, char* publish, int rate, int time);
+  Movie(int years, char* name, char* publish, float rate, int time);
   char* getDirector();
   int getDuration();
-  int getRating();
+  float getRating();
   ~Movie();
   void printAttributes();
  private:

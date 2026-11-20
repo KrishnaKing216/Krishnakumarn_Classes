@@ -7,13 +7,13 @@ using namespace std;
 Media::Media(int years, char* name)
 {
   year = years;
-  title = new char[strlen(name) + 1] //Received this instruction on how to create an array of unfixed size to copy into based on the size of the input argument from claude. Carried over in all children
+  title = new char[strlen(name) + 1]; //Received this instruction on how to create an array of unfixed size to copy into based on the size of the input argument from claude. Carried over in all children
   strcpy(title, name);
 }
 
 char* Media::getName()
 {
-  return title
+  return title;
 }
 
 int Media::getYear()

@@ -14,7 +14,7 @@ Movie::Movie(int years, char* name, char* publish, float rate, int time):Media(y
 
 char* Movie::getDirector()
 {
-  return director
+  return director;
 }
 
 int Movie::getDuration()
@@ -24,7 +24,7 @@ int Movie::getDuration()
 
 float Movie::getRating()
 {
-  return rating
+  return rating;
 }
 
 Movie::~Movie()

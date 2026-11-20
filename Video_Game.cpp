@@ -4,29 +4,29 @@
 
 using namespace std;
 
-Video_Game::videoGame(int years, char* name, char* publish, float rate):Media(years, name)
+videoGame::videoGame(int years, char* name, char* publish, float rate):Media(years, name)
 {
   rating = rate;
   publisher = new char[strlen(publish) + 1];
   strcpy(publisher, publish);
 }
 
-char* Video_Game::getPublisher()
+char* videoGame::getPublisher()
 {
-  return publisher
+  return publisher;
 }
 
-float Video_Game::getRating()
+float videoGame::getRating()
 {
   return rating;
 }
 
-Video_Game::~videoGame()
+videoGame::~videoGame()
 {
   delete[] publisher;
 }
 
-void Music::printAttributes()
+void videoGame::printAttributes()
 {
   cout << "Media Type: Video Game" << endl;
   Media::printAttributes();
