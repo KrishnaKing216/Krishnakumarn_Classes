@@ -1,6 +1,6 @@
 #ifndef MOVIE_H
 #define MOVIE_H
-
+//header for the Movie child class (inherits publicly from Media). Contains the constructor, getter methods for the private variables, the destructor, and the overridden printAttributes. Contains header guard
 #include "Media.h"
 
 class Movie : public Media

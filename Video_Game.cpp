@@ -1,3 +1,8 @@
+/*
+ Child class cpp file for videoGame. Defines the constructor, getter methods, destructor,
+ and printAttributes for video games. Copies the publisher into its own heap memory
+ and frees it in the destructor.
+*/
 #include <iostream>
 #include <cstring>
 #include "Video_Game.h"

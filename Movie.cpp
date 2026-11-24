@@ -1,3 +1,8 @@
+/*
+ Child class cpp file for Movie. Defines the constructor, getter methods, destructor,
+ and printAttributes for movies. Copies the director into its own heap memory and
+ frees it in the destructor.
+*/
 #include <iostream>
 #include<cstring>
 #include "Movie.h"

@@ -1,3 +1,8 @@
+/*
+ Child class cpp file for Music. Defines the constructor, getter methods, destructor,
+ and printAttributes for songs. Copies the publisher and artist into their own heap
+ memory and frees both in the destructor.
+*/
 #include <iostream>
 #include <cstring>
 #include "Music.h"
@@ -39,6 +44,7 @@ void Music::printAttributes()
   cout << "Media Type: Music" << endl;
   Media::printAttributes();
   cout << "Duration: " << duration << endl;
+  cout << "Publisher(s): " << publisher << endl;
   cout << "Artist(s): " << artist << endl;
 }
 

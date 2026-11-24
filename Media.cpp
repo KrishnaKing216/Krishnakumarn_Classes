@@ -1,3 +1,6 @@
+/*
+ Parent class cpp file defining the methods, constructors and destructors
+*/
 #include <iostream>
 #include "Media.h"
 #include <cstring>
